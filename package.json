@@ -49,5 +49,11 @@
         "hackathon"
     ],
     "author": "Your Name",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "framer-motion": "^12.34.3",
+        "lucide-react": "^0.575.0",
+        "react": "^19.2.4",
+        "recharts": "^3.7.0"
+    }
 }
