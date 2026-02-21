@@ -503,13 +503,18 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, publicKey }) => {
 
                                 {/* NEW: Allocation Chart Skeleton Loading State */}
                                 {loading ? (
-                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm animate-pulse">
-                                        <div className="w-32 h-6 bg-gray-300 dark:bg-gray-700 rounded mb-4" />
-                                        <div className="h-48 bg-gray-200 dark:bg-gray-700 rounded mb-4" />
-                                        <div className="space-y-2">
+                                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+                                        <div className="w-32 h-6 bg-gray-300 dark:bg-gray-700 rounded mb-4 animate-pulse" />
+                                        <div className="h-48 flex items-center justify-center mb-4">
+                                            <div className="w-40 h-40 rounded-full bg-gray-200 dark:bg-gray-700 animate-pulse" />
+                                        </div>
+                                        <div className="space-y-3">
                                             {[1, 2, 3].map((i) => (
-                                                <div key={i} className="flex justify-between">
-                                                    <div className="w-16 h-3 bg-gray-300 dark:bg-gray-700 rounded" />
+                                                <div key={i} className="flex items-center justify-between animate-pulse">
+                                                    <div className="flex items-center space-x-2">
+                                                        <div className="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-700" />
+                                                        <div className="w-20 h-3 bg-gray-300 dark:bg-gray-700 rounded" />
+                                                    </div>
                                                     <div className="w-12 h-3 bg-gray-300 dark:bg-gray-700 rounded" />
                                                 </div>
                                             ))}
