@@ -343,33 +343,29 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, publicKey }) => {
                         >
                             <RefreshCw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} />
                         </button>
-                                                    </div>
-                                                </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
-                        {/* Price Tracker */}
-                        <div className="mb-8">
-                            <PriceTracker />
-                        </div>
+                {/* Price Tracker */}
+                <div className="mb-8">
+                    <PriceTracker />
+                </div>
 
-                        {/* NEW: Asset Cards - with skeleton loading state */}
-                        <div className="grid lg:grid-cols-3 gap-6 mb-8">
-                            {loading ? (
-                                // Show skeleton cards while loading
-                                [1, 2, 3].map((i) => (
-                                    <AssetCard key={`skeleton-${i}`} isLoading={true} />
-                                ))
-                            ) : (
-                                // Show actual asset cards when data is loaded
-                                allocationData.map((asset: any, index: number) => (
-                                    <AssetCard key={index} asset={asset} price={prices[asset.name]} />
-                                ))
-                            )}
-                        </div>
+                {/* NEW: Asset Cards - with skeleton loading state */}
+                <div className="grid lg:grid-cols-3 gap-6 mb-8">
+                    {loading ? (
+                        // Show skeleton cards while loading
+                        [1, 2, 3].map((i) => (
+                            <AssetCard key={`skeleton-${i}`} isLoading={true} />
+                        ))
+                    ) : (
+                        // Show actual asset cards when data is loaded
+                        allocationData.map((asset: any, index: number) => (
+                            <AssetCard key={index} asset={asset} price={prices[asset.name]} />
+                        ))
+                    )}
+                </div>
+            </div>
 
             <div className="p-6 max-w-7xl mx-auto">
                 {/* Tab Navigation */}
