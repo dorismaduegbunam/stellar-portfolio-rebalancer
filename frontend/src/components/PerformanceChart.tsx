@@ -121,7 +121,6 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({ portfolioId }) => {
 
     // NEW: Show skeleton loading state for chart
     if (loading) {
-        console.log("[v0] PerformanceChart rendering skeleton");
         return (
             <div className="space-y-6">
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm animate-pulse">

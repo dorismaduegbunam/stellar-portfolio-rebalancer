@@ -563,21 +563,20 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, publicKey }) => {
                             <PriceTracker />
                         </div>
 
-                        {/* NEW: Asset Cards Skeleton Loading State */}
-                        <div className="grid lg:grid-cols-3 gap-6 mb-8">
-                            {loading ? (
-                                // Show skeleton cards while loading
-                                [1, 2, 3].map((i) => {
-                                    console.log("[v0] Rendering asset card skeleton", i);
-                                    return <AssetCard key={`skeleton-${i}`} isLoading={true} />
-                                })
-                            ) : (
-                                // Show actual asset cards when data is loaded
-                                allocationData.map((asset: any, index: number) => (
+                        {/* NEW: Asset Cards with Skeleton Loading State */}
+                        {loading ? (
+                            <div className="grid lg:grid-cols-3 gap-6 mb-8">
+                                {[1, 2, 3].map((i) => (
+                                    <AssetCard key={`skeleton-${i}`} isLoading={true} />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="grid lg:grid-cols-3 gap-6 mb-8">
+                                {allocationData.map((asset: any, index: number) => (
                                     <AssetCard key={index} asset={asset} price={prices[asset.name]} />
-                                ))
-                            )}
-                        </div>
+                                ))}
+                            </div>
+                        )}
 
                         {/* Rebalance History */}
                         <RebalanceHistory portfolioId={portfolioData?.id || null} />
